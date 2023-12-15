@@ -1,0 +1,103 @@
+
+
+snort -w
+getmac /fo csv /v
+snort -i 3 -c c:\snort\etc\snort.conf -l c:\snort\log -A console
+alert ip any any -> any any (msg:"Ip packets detected";sid:10000001;)
+
+sudo apt install -y apache2 apache2-utils autoconf gcc libc6 libgd-dev make php python python3
+tree unzip wget
+tar -zxf nagios-4.4.5
+cd nagios-4
+sudo ./configure --with-httpd-conf=/etc/apache2/sites-enables/
+sudo make all
+sudo make install-groups-users
+sudo passwd nagios
+sudo usermod -aG nagios www-data
+sudo make install
+sudo make install-daemoninit,commandmode,config,web.conf
+sudo a2enmod rewrite
+sudo a2enmod cgi
+sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+sudo /usr/local/nagios/bin/nagios -v /usr/local/naigos/etc/nagios.cfg
+
+sudo apt install -y automake autotools-dev bc build-essential dc gawk gettext libmcrypt-dev libnet-snmp-perl libssl-dev snmp 
+sudo nagios plugins-release-2.2.1
+sudo tar -zxf nagios plugins-release-2
+sudo ./tools/setup
+sudo ./configure
+sudo make
+sudo make install
+
+deb2 monitoring machine
+sudo apt install wget libsqlite3-0
+sudo dpkg -i ncpa-2.1.9.d10.amd64.deb
+/usr/local/ncpa/etc/ncpa.cfg inside this give communtity_string=1234
+sudo systemctl restart ncpa_listner.service
+check on port no 5693
+
+deb1
+navigate to libexe download and verify 
+change permission as 755 check_ncpa.python
+sudo ./check_ncpa.py -t password -H 192.168.80.129 -M memory/virtual
+go to /usr/local/nagios/etc/object/command.cfg
+command_name check_ncpa
+command_line $USER1$/check_ncpa.py -H $HOSTADDRESS$ $ARG1$
+go to nagios.cfg /usr/local/nagios/etc/nagios.cfg
+uncomment cfg_dir=/usr/local/nagios/etc/servers
+sudo mkdir servers
+ 
+ sudo apt-get install nginx
+  sudo apt install nginx
+  301  cd /etc/nginx/sites-available
+  306  sudo rm default
+  307  sudo nano rp.conf
+ server{
+        listen 80;
+        location /{
+                proxy_pass https://www.iacsd.com;
+        }
+}
+
+  309  sudo ln -s /etc/nginx/sites-available/rp.conf /etc/nginx/sites-enabled/
+
+
+sudo apt install iptables
+iptables -A INPUT -i -j accept
+iptables -A input -m state --state ESTABLISHED,RELATED -J ACCEPT
+iptables-F
+iptables -A INPUT-p tcp --dport ssh -j ACCEPT
+iptables -A INPUT -s 192.168.8.1 -p tcp -dport ssh -j accept
+iptables -D input 7
+
+#  tag: acl
+acl shuhari_users dstdomain 192,168.80.128
+#  tag:http_access
+http_access allow shuhari_users
+#  tag: https_port
+htt_port 3128 accel defaultsite=192.168.80.128 vhost
+#   tag:cache_peer_access
+cache_peer 192.168.80.130 parent 80 0 no-query originserver name=shuhari_users
+# neighbour type domain
+cache_peer_acces shuhari allow shuahri_users
+cache_peer_acces shuhari deny all
+check :3138
+https_port
+80 vhost
+cache_peer 192.168.80.130 parent 80 0 no-query originserver round-robin weight=1 name=one
+cache_peer 192.168.80.129 parent 80 0 no-query originserver round-robin weight=1 name=two
+
+install fail2ban
+sudo fail2ban-client status  and sshd
+sudo fail2ban-client get sshd bantime 600
+sudo nano /etc/fail2ban/jail.conf
+
+proto udp remote server ip
+port 1194
+dev tun
+auth none
+cipher none
+ifconfig 10.8.0.1 10.8.0.2
+verb 3
+sudo openvpn --config server.conf
+for windows c/programfile/openvpn/core
